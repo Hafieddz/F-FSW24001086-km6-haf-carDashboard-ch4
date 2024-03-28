@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="public/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="h-dvh">
+    <div class="drawer">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col">
+            <!-- Navbar -->
+            <nav class="w-full navbar bg-white shadow-lg justify-between h-20">
+                <div class="flex-none">
+                    <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            class="inline-block w-6 h-6 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </label>
+                </div>
+                <div class="flex-none">
+                    <div class="menu menu-horizontal gap-5 items-center">
+                        <!-- Navbar menu content here -->
+                        <div class="hidden items-center xs:flex">
+                            <label class="input input-bordered flex items-center gap-2 rounded-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                    class="w-4 h-4 opacity-70">
+                                    <path fill-rule="evenodd"
+                                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <input type="text" class="grow-0 xs:w-16 sm:w-56 rounded-sm" placeholder="Search" />
+                            </label>
+                            <button
+                                class="btn rounded-sm border-2 border-blue-900 text-blue-900 font-bold bg-white hover:bg-blue-900 hover:text-white hover:border-blue-900">
+                                Search
+                            </button>
+                        </div>
+                        <div class="flex gap-3 items-center">
+                            <div class="avatar object-cover w-12 h-12">
+                                <div class="w-24 rounded-full">
+                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                            <p class="font-semibold text-sm"> Leia Organa </p>
+                            <img src="/assets/icon/fi_chevron-down.svg" alt="icon_down">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="drawer-side z-50">
+            <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-60 min-h-full bg-base-200">
+                <!-- Sidebar content here -->
+                <li><a>Sidebar Item 1</a></li>
+                <li><a>Sidebar Item 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="bg-slate-100 h-full">
+        <div class="px-10 py-6">
+            <div class="text-sm breadcrumbs">
+                <ul>
+                    <li><a class="font-bold">Cars</a></li>
+                    <li><a class="font-bold">List Car</a></li>
+                    <li><a>Add New Car</a></li>
+                </ul>
+            </div>
+
+            <h2 class="font-bold text-2xl mt-4"> Add New Car </h2>
+
+            <div id="add-form" class="rounded-md bg-white py-5 px-8 mt-5 gap-4 flex flex-col">
+                <div class="flex gap-20 items-center">
+                    <label for="" class="w-32"> Nama <span class="text-red-600">*</span> </label>
+                    <input type="text" placeholder="Avanza" class="input input-bordered w-full max-w-xs rounded-sm" />
+                </div>
+                <div class="flex gap-20 items-center">
+                    <label for="" class="w-32"> Sewa Per Hari <span class="text-red-600">*</span> </label>
+                    <input type="text" placeholder="Rp.0-" class="input input-bordered w-full max-w-xs rounded-sm" />
+                </div>
+                <div class="flex gap-20 items-center">
+                    <label for="" class="w-32"> Ukuran <span class="text-red-600">*</span> </label>
+                    <input type="text" placeholder="Small" class="input input-bordered w-full max-w-xs rounded-sm" />
+                </div>
+                <div class="flex gap-20 items-center">
+                    <label for="" class="w-32"> Foto <span class="text-red-600">*</span> </label>
+                    <div>
+                        <input type="text" placeholder="https://placeimage.com/any"
+                            class="input input-bordered w-full max-w-xs rounded-sm" />
+                        <span class="text-xs text-gray-400"> File size max. 2MB </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form-action" class="absolute bottom-0 mb-10">
+                <div class="flex gap-3 justify-between">
+                    <button
+                        class="bg-white border-blue-700 border rounded-sm font-bold text-blue-700 w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:text-white hover:bg-red-600 duration-150 hover:duration-150">
+                        Cancel
+                    </button>
+                    <button
+                        class="bg-blue-700 rounded-sm font-bold text-white w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:bg-green-800 duration-150 hover:duration-150">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
