@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const carSchema = new mongoose.Schema({
   nama: {
     type: String,
-    required: true,
+    unique : true,
+    required : true
   },
   price: {
     type: Number,
@@ -11,6 +12,7 @@ const carSchema = new mongoose.Schema({
   },
   capacity: {
     type: String,
+    default : "Small"
   },
   photo: {
     type: String,
