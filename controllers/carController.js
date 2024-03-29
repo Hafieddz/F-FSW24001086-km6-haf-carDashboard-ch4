@@ -12,6 +12,7 @@ const getCars = async (req, res) => {
     } else {
       res.status(200).json({
         status: "Success",
+        totalData : cars.length,
         cars: {
           cars,
         },
@@ -42,7 +43,7 @@ const getCar = async (req, res) => {
     });
   }
 };
-
+  
 const updateCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -68,7 +69,6 @@ const updateCar = async (req, res) => {
 
 const createCar = async (req, res) => {
   try {
-    console.log(req.body);
     const newCar = await Car.create(req.body);
     res.status(201).json({
       status: "Success",
