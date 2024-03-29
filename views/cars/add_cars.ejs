@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Create Cars </title>
     <link href="/public/css/style.css" rel="stylesheet" />
 </head>
 
@@ -111,101 +111,82 @@
                 </div>
             </div>
             <!-- Main Section -->
-            <main class="flex-grow p-6 overflow-auto bg-gray-100">
-                <div class="text-sm breadcrumbs">
-                    <ul>
-                        <li><a class="font-bold">Cars</a></li>
-                        <li><a>List Car</a></li>
-                    </ul>
-                </div>
+            <main class="bg-slate-100 h-full">
+                <div class="px-10 py-6">
+                    <div class="text-sm breadcrumbs">
+                        <ul>
+                            <li><a class="font-bold">Cars</a></li>
+                            <li><a class="font-bold">List Car</a></li>
+                            <li><a>Add New Car</a></li>
+                        </ul>
+                    </div>
 
-                <div class="flex items-center justify-between">
-                    <h2 class="font-bold text-2xl mt-4"> List Cars </h2>
-                    <a href="/cars/add_cars">
-                        <button
-                            class="px-4 py-3 text-white font-bold bg-blue-800 rounded-md flex justify-center gap-3 items-center w-fit duration-150 hover:bg-blue-500 hover:text-slate-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-                            Add New Car
-                        </button>
-                    </a>
-                </div>
+                    <h2 class="font-bold text-2xl mt-4"> Add New Car </h2>
 
-                <div class="flex items-center gap-2 mt-4">
-                    <button
-                        class="bg-blue-200 px-3 py-2 border-2 font-semibold border-blue-900 text-blue-900 rounded-md">
-                        All
-                    </button>
-
-                    <button
-                        class="bg-blue-200 px-3 py-2 border-2 font-semibold border-blue-900 text-blue-900 rounded-md opacity-60">
-                        Small
-                    </button>
-
-                    <button
-                        class="bg-blue-200 px-3 py-2 border-2 font-semibold border-blue-900 text-blue-900 rounded-md opacity-60">
-                        Medium
-                    </button>
-
-                    <button
-                        class="bg-blue-200 px-3 py-2 border-2 font-semibold border-blue-900 text-blue-900 rounded-md opacity-60">
-                        Large
-                    </button>
-                </div>
-                <% if (cars.length> 0) { %>
-                    <div class="grid grid-cols-3 gap-6 mt-8">
-                        <% cars.map((car)=> { %>
-                            <div class="card w-78 md:w-96 bg-base-100 shadow-xl rounded-lg">
-                                <div class="pt-14 px-10">
-                                    <img src="/assets/images/image_1.png" alt="Car" class="w-full object-cover" />
-                                </div>
-                                <div class="card-body flex flex-col gap-0">
-                                    <h2 class="card-title font-semibold text-sm">
-                                        <%= car.nama %>
-                                    </h2>
-                                    <h3 class="font-bold text-lg mt-2">Rp.<%= formatPrice(car.price) %> / hari </h3>
-                                    <div id="card-info" class="flex gap-2 mt-4">
-                                        <img src="/assets/icon/fi_clock.svg" alt="">
-                                        <p class="text-xs text-black"> Updated at <%= formatDate(car.createdAt) %>
-                                        </p>
-                                    </div>
-                                    <div class="card-actions flex gap-3 justify-between mt-6">
-                                        <button
-                                            class="bg-white border-red-600 border rounded-sm font-bold text-red-600 w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:text-white hover:bg-red-600 duration-150 hover:duration-150">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                                            </svg>
-                                            Delete
-                                        </button>
-                                        <button
-                                            class="bg-green-600 rounded-sm font-bold text-white w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:bg-green-800 duration-150 hover:duration-150">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                            </svg>
-                                            Edit
-                                        </button>
-                                    </div>
+                    <form action="/cars/admin/create_car" method="POST">
+                        <div id="add-form" class="rounded-md bg-white py-5 px-8 mt-5 gap-4 flex flex-col">
+                            <div class="flex gap-20 items-center">
+                                <label for="input-name" class="w-32"> Nama <span class="text-red-600">*</span> </label>
+                                <input type="text" placeholder="Avanza" id="input-name" name="nama" required
+                                    class="input input-bordered w-full max-w-xs rounded-sm" />
+                            </div>
+                            <div class="flex gap-20 items-center">
+                                <label for="input-rent" class="w-32"> Sewa Per Hari <span class="text-red-600">*</span>
+                                </label>
+                                <input type="number" placeholder="Rp.0-" id="input-rent" name="price" required
+                                    class="input input-bordered w-full max-w-xs rounded-sm" />
+                            </div>
+                            <div class="flex gap-20 items-center">
+                                <label class="w-32"> Ukuran <span class="text-red-600">*</span> </label>
+                                <div class="dropdown w-full max-w-xs">
+                                    <input type="text" class="hidden" name="capacity" id="input-capacity" value="Small">
+                                    <div tabindex="0"
+                                        class="px-4 h-12 border border-gray-300 w-full rounded-sm items-center flex text-gray-400 bg-no-repeat"
+                                        id="capacity-div"
+                                        style="background-image: url('assets/icon/fi_chevron-input.svg'); background-position: 95%;">
+                                        Small </div>
+                                    <ul tabindex="0"
+                                        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-full">
+                                        <li><a onclick="setCapacityInput('Small')">Small</a></li>
+                                        <li><a onclick="setCapacityInput('Medium')">Medium</a></li>
+                                        <li><a onclick="setCapacityInput('Large')">Large</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <% }) %>
-                    </div>
-                    <% } else { %>
-                        <div class="grid mt-8">
-                            <p class="text-lg font-bold"> Data mobil tidak ada... Silahkan tambah data terlebih dahulu!
-                            </p>
+                            <div class="flex gap-20 items-center">
+                                <label for="" class="w-32"> Foto <span class="text-red-600">*</span> </label>
+                                <div class="w-full max-w-xs">
+                                    <input type="file" class="hidden" name="carPhoto" id="input-photo">
+                                    <div tabindex="0"
+                                        class="px-4 h-12 border border-gray-300 w-full rounded-sm items-center flex text-gray-400 bg-no-repeat"
+                                        id="photo-div"
+                                        style="background-position: 95%; background-image: url('assets/icon/fi_upload.svg');">
+                                        Pilih file gambar </div>
+                                    <span class="text-xs text-gray-500"> File Max 2MB.</span>
+                                </div>
+                            </div>
                         </div>
-                        <% } %>
+
+                        <div id="form-action" class="absolute bottom-0 mb-10">
+                            <div class="flex gap-3 justify-between">
+                                <button type="reset"
+                                    class="border-blue-700 border rounded-sm font-bold text-blue-700 flex px-3 py-2 hover:opacity-50 hover:duration-150 duration-150">
+                                    Cancel
+                                </button>
+                                <button type="submit"
+                                    class="bg-blue-700 rounded-sm font-bold text-white flex px-3 py-2 duration-150 hover:opacity-50 hover:duration-150">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </main>
         </div>
-        </main>
+        <!-- Component End  -->
     </div>
-    <!-- Component End  -->
-    </div>
+
+    <script src="/public/js/index.js"></script>
 </body>
 
 </html>
