@@ -1,8 +1,6 @@
 const Car = require("../models/carModel");
-const path = require("path");
 const formatPrice = require("../utils/formatPrice");
 const formatDate = require("../utils/formatDate");
-const mongoose = require("mongoose");
 
 const carPage = async (req, res) => {
   try {
