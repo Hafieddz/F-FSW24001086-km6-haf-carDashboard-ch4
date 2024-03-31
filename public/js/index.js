@@ -1,25 +1,11 @@
-const inputCapacity = document.getElementById("input-capacity");
-const capacityDiv = document.getElementById("capacity-div")
-const photoDiv = document.getElementById("photo-div");
-const inputPhoto = document.getElementById('input-photo');
+// Script untuk menghilangkan alert ketika alert muncul..
 
+const alertDiv = document.getElementById("alert-div");
 
-function setCapacityInput(type) {
-  inputCapacity.value = type;
-  capacityDiv.innerText = type;
-  console.log(inputCapacity.value);
+if(alertDiv !== null) {
+    document.addEventListener("DOMContentLoaded", () => {
+       setTimeout(() => {
+        alertDiv.classList.add('hidden'); 
+       }, 2500);
+    });
 }
-
-photoDiv.addEventListener('click', () => {
-  inputPhoto.click();
-})
-
-inputPhoto.onchange = function(e) {
-  const file = this.value;
-  const fileName = file.replace(/.*[\/\\]/, '');
-  photoDiv.innerText = fileName;
-}
-
-
-
-
