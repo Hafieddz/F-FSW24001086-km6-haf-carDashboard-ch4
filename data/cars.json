@@ -1,0 +1,29 @@
+[
+    {
+        "_id": "6608d74c95cb410e8db29207",
+        "nama": "Honda Brio",
+        "price": 925000,
+        "capacity": "Small",
+        "photo": "car-default.png",
+        "createdAt": "2024-03-31T03:23:06.868Z",
+        "__v": 0
+    },
+    {
+        "_id": "6608d77595cb410e8db2920c",
+        "nama": "CRV",
+        "price": 2000000,
+        "capacity": "Medium",
+        "photo": "car-default.png",
+        "createdAt": "2024-03-31T03:23:06.868Z",
+        "__v": 0
+    },
+    {
+        "_id": "6608d78a95cb410e8db2920f",
+        "nama": "Pajero",
+        "price": 3000000,
+        "capacity": "Large",
+        "photo": "car-default.png",
+        "createdAt": "2024-03-31T03:23:06.868Z",
+        "__v": 0
+    }
+]
