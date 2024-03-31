@@ -1,22 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ["./public/**/*.{html,js}", "./views/**/*.ejs"],
   theme: {
-    screens : {
-      'xs' : '476px',
-      'sm' : '623px',
-      'md' : '850px',
-      'lg' : '1000px',
-      'xl' : '1300px'
+    screens: {
+      xs: "476px",
+      sm: "623px",
+      md: "850px",
+      lg: "1000px",
+      xl: "1300px",
     },
     extend: {
-      spacing : {
-        78 : '19rem' 
+      spacing: {
+        78: "19rem",
+      },
+      width : {
+        'alert' : '34rem',
+      },
+      fontFamily : {
+        'plex-sans' : ["IBM Plex Sans", "sans-serif"],
+        'rubik' : ["Rubik"],
       }
     },
   },
-  daisyui : {
-    themes : ['light']
+  daisyui: {
+    themes: ["light"],
   },
   plugins: [require("daisyui")],
-}
+};
