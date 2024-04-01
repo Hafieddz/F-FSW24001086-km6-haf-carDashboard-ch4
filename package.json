@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js",
     "tailwind-watch": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
-    "delete-data" : "node ./data/seeder.js --delete",
-    "import-data" : "node ./data/seeder.js --import"
+    "delete-data": "node ./data/seeder.js --delete",
+    "import-data": "node ./data/seeder.js --import"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "express-session": "^1.18.0",
     "mongoose": "^8.2.3",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.0"
   }
 }
