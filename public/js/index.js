@@ -1,11 +1,18 @@
-// Script untuk menghilangkan alert ketika alert muncul..
-
+const searchInput = document.getElementById("search-input");
+const searchForm = document.getElementById("search-form");
 const alertDiv = document.getElementById("alert-div");
 
-if(alertDiv !== null) {
-    document.addEventListener("DOMContentLoaded", () => {
-       setTimeout(() => {
-        alertDiv.classList.add('hidden'); 
-       }, 2500);
-    });
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if(searchInput.value) {
+        window.location.href = `/cars?nama=${searchInput.value.trim()}`
+    }
+})
+
+if (alertDiv !== null) {
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      alertDiv.classList.add("hidden");
+    }, 2500);
+  });
 }

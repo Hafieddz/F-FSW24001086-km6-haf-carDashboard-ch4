@@ -2,12 +2,12 @@ const inputCapacity = document.getElementById("input-capacity");
 const capacityDiv = document.getElementById("capacity-div")
 const photoDiv = document.getElementById("photo-div");
 const inputPhoto = document.getElementById('input-photo');
-
+const formBtn = document.getElementById('form-btn');
+const photoInputAlert = document.getElementById('photo-input-alert');
 
 function setCapacityInput(type) {
   inputCapacity.value = type;
   capacityDiv.innerText = type;
-  console.log(inputCapacity.value);
 }
 
 photoDiv.addEventListener('click', () => {
@@ -20,6 +20,8 @@ inputPhoto.onchange = function(e) {
   photoDiv.innerText = fileName;
 }
 
-
-
-
+formBtn.onclick = (e) => {
+  if(inputPhoto.value === '') {
+    photoInputAlert.classList.remove('hidden');
+  }
+}
