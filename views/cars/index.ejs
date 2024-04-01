@@ -72,21 +72,23 @@
                 </button>
                 <!-- Navbar Right-->
                 <div class="flex gap-3">
-                    <div class="hidden items-center xs:flex">
-                        <label class="input input-bordered flex items-center gap-2 rounded-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                class="w-4 h-4 opacity-70">
-                                <path fill-rule="evenodd"
-                                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <input type="text" class="grow-0 xs:w-16 sm:w-56 rounded-sm" placeholder="Search" />
-                        </label>
-                        <button
-                            class="btn rounded-sm border-2 border-blue-900 text-blue-900 font-bold bg-white hover:bg-blue-900 hover:text-white hover:border-blue-900">
-                            Search
-                        </button>
-                    </div>
+                    <form id="search-form" method="GET">
+                        <div class="hidden items-center xs:flex">
+                            <label class="input input-bordered flex items-center gap-2 rounded-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                    class="w-4 h-4 opacity-70">
+                                    <path fill-rule="evenodd"
+                                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <input type="text" id="search-input" class="grow-0 xs:w-16 sm:w-56 rounded-sm" placeholder="Search" />
+                            </label>
+                            <button type="submit"
+                                class="btn rounded-sm border-2 border-blue-900 text-blue-900 font-bold bg-white hover:bg-blue-900 hover:text-white hover:border-blue-900">
+                                Search
+                            </button>
+                        </div>
+                    </form>
                     <div class="flex gap-2 items-center">
                         <div class="avatar object-cover w-12 h-12">
                             <div class="w-24 rounded-full">
@@ -194,21 +196,25 @@
                                         <% cars.map((car)=> { %>
                                             <div class="card w-78 md:w-96 bg-base-100 shadow-xl rounded-lg">
                                                 <div class="pt-14 px-10">
-                                                    <img src="/assets/images/car-default.png" alt="Car"
-                                                        class="w-full object-cover" />
+                                                    <img src="/assets/images/<%= car.photo %>" alt="Car"
+                                                        class="w-full object-contain h-52" />
                                                 </div>
                                                 <div class="card-body flex flex-col gap-0">
                                                     <h2 class="card-title font-semibold text-sm">
                                                         <%= car.nama %>
                                                     </h2>
-                                                    <h3 class="font-bold text-lg mt-2">Rp.<%= formatPrice(car.price) %>
-                                                            /
-                                                            hari </h3>
+                                                    <h3 class="font-bold text-lg mt-2">Rp.<%= formatPrice(car.price) %> / hari </h3>
                                                     <div id="card-info" class="flex gap-2 mt-4">
                                                         <img src="/assets/icon/fi_clock.svg" alt="">
-                                                        <p class="text-xs text-black"> Created at <%=
+                                                        <% if (car.updatedAt) { %>
+                                                            <p class="text-xs text-black"> Updated at <%=
+                                                                    formatDate(car.updatedAt) %>
+                                                            </p>
+                                                        <% } else { %> 
+                                                            <p class="text-xs text-black"> Created at <%=
                                                                 formatDate(car.createdAt) %>
-                                                        </p>
+                                                            </p>
+                                                        <% } %>
                                                     </div>
                                                     <div class="card-actions flex gap-3 justify-between mt-6">
                                                         <button
