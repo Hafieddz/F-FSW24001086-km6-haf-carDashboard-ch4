@@ -33,6 +33,12 @@ app.get('/', (req,res) => {
   res.redirect('/cars');
 })
 
+app.get('/404', (req,res) => {
+  res.render('404.ejs', {
+    message : req.flash("message", "")
+  })
+})
+
 app.use(router);
 
 module.exports = app;
