@@ -22,6 +22,9 @@ const carSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  updatedAt : {
+    type: Date
+  }
 });
 
 const Car = mongoose.model("Car", carSchema);
