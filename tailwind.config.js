@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       spacing: {
         78: "19rem",
+        92: "22rem",
       },
       width : {
         'alert' : '34rem',

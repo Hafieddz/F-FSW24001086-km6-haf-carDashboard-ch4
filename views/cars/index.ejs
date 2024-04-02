@@ -194,7 +194,7 @@
                                 <% if (cars.length> 0) { %>
                                     <div class="grid grid-cols-3 gap-6 mt-8">
                                         <% cars.map((car)=> { %>
-                                            <div class="card w-78 md:w-96 bg-base-100 shadow-xl rounded-lg">
+                                            <div class="card w-80 md:w-92 bg-base-100 shadow-xl rounded-lg">
                                                 <div class="pt-14 px-10">
                                                     <img src="/assets/images/<%= car.photo %>" alt="Car"
                                                         class="w-full object-contain h-52" />
@@ -216,10 +216,10 @@
                                                             </p>
                                                         <% } %>
                                                     </div>
-                                                    <div class="card-actions flex gap-3 justify-between mt-6">
+                                                    <div class="card-actions flex justify-between mt-6">
                                                         <button
                                                             onclick="document.getElementById('my_modal_<%= car._id %>').showModal()"
-                                                            class="bg-white border-red-600 border rounded-sm font-bold text-red-600 w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:text-white hover:bg-red-600 duration-150 hover:duration-150">
+                                                            class="bg-white border-red-600 border rounded-sm font-bold text-red-600 w-28 md:w-32 flex px-2 justify-center py-3 items-center gap-2 hover:text-white hover:bg-red-600 duration-150 hover:duration-150">
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                 viewBox="0 0 24 24" stroke-width="1.5"
                                                                 stroke="currentColor" class="w-5 h-5">
@@ -258,7 +258,7 @@
 
                                                         <a href="/cars/update/<%=car._id%>">
                                                             <button
-                                                                class="bg-green-600 rounded-sm font-bold text-white w-28 md:w-36 flex px-2 justify-center py-3 items-center gap-2 hover:bg-green-800 duration-150 hover:duration-150">
+                                                                class="bg-green-600 rounded-sm font-bold text-white w-28 md:w-32 flex px-2 justify-center py-3 items-center gap-2 hover:bg-green-800 duration-150 hover:duration-150">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                     viewBox="0 0 24 24" stroke-width="2"
                                                                     stroke="currentColor" class="w-5 h-5">

@@ -126,7 +126,7 @@
 
                     <h2 class="font-bold text-2xl mt-4"> Update Cars Information </h2>
 
-                    <form action="/cars/admin/update_car/<%= car._id %>" method="POST">
+                    <form action="/cars/admin/update_car/<%= car._id %>" method="POST" enctype="multipart/form-data">
                         <div id="add-form" class="rounded-md bg-white py-5 px-8 mt-5 gap-4 flex flex-col">
                             <div class="flex gap-20 items-center">
                                 <label for="input-name" class="w-32"> Nama <span class="text-red-600">*</span> </label>
@@ -162,10 +162,10 @@
                                 <div class="w-full max-w-xs">
                                     <input type="file" class="hidden" name="carPhoto" id="input-photo">
                                     <div tabindex="0"
-                                        class="px-4 h-12 border border-gray-300 w-full rounded-sm items-center flex text-gray-400 bg-no-repeat"
+                                        class="ps-4 pe-10  truncate h-12 border border-gray-300 w-full rounded-sm items-center flex text-gray-400 bg-no-repeat"
                                         id="photo-div"
                                         style="background-position: 95%; background-image: url('/assets/icon/fi_upload.svg');">
-                                        Pilih file gambar </div>
+                                         <span class="w-full overflow-hidden"> <%= car.photo %> </span> </div>
                                     <span class="text-xs text-gray-500"> File Max 2MB.</span>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
         <!-- Component End  -->
     </div>
 
-    <script src="/public/js/add_cars.js"></script>
+    <script src="/public/js/edit_cars.js"></script>
 </body>
 
 </html>

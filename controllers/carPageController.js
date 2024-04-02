@@ -1,7 +1,8 @@
 const Car = require("../models/carModel");
 const formatPrice = require("../utils/formatPrice");
 const formatDate = require("../utils/formatDate");
-const fs = require('fs')
+const flashCode = require("../middleware/flash");
+const fs = require("fs");
 
 const carPage = async (req, res) => {
   try {
@@ -24,7 +25,7 @@ const carPage = async (req, res) => {
       status: req.flash("status", ""),
     });
   } catch (error) {
-    req.flash("message", error.message);
+    req.flash(req, "message", error.message);
     res.redirect("/404");
   }
 };
@@ -32,13 +33,23 @@ const carPage = async (req, res) => {
 const updateCar = async (req, res) => {
   try {
     const { id } = req.params;
-    const newData = {...req.body, updatedAt : Date.now()}
+    const getCar = await Car.findById(id);
+    let currentPhoto = getCar.photo;
+
+    if (req.file) {
+      currentPhoto = req.file.filename;
+      fs.unlink(`${__dirname}/../assets/images/${getCar.photo}`, (err) => {});
+    }
+    const newData = {
+      ...req.body,
+      photo: currentPhoto,
+      updatedAt: Date.now(),
+    };
     await Car.findByIdAndUpdate(id, newData, {
       new: true,
       runValidators: true,
     });
-    req.flash("status", "success");
-    req.flash("message", "diedit");
+    flashCode(req, "success", "Diedit");
     res.redirect("/cars");
   } catch (error) {
     req.flash("message", error.message);
@@ -65,18 +76,22 @@ const createCarsPage = async (req, res) => {
 
 const createCar = async (req, res) => {
   try {
+    let photoFilename = "car-default.png";
+    if (req.file) {
+      photoFilename = req.file.filename;
+    }
+
     const newCar = {
       nama: req.body.nama,
       price: req.body.price,
       capacity: req.body.capacity,
-      photo: req.file.filename,
+      photo: photoFilename,
     };
     await Car.create(newCar);
-
-    req.flash("status", "success");
-    req.flash("message", "disimpan");
+    flashCode(req, "success", "Ditambah");
     res.redirect("/cars");
   } catch (error) {
+    console.log(error.message);
     req.flash("message", error.message);
     res.redirect("/404");
   }
@@ -86,11 +101,15 @@ const deleteCar = async (req, res) => {
   try {
     const { id } = req.params;
     const deletedCar = await Car.findByIdAndDelete(id);
-    fs.unlink(`${__dirname}/../assets/images/${deletedCar.photo}`, (err) => {
-      req.flash("status", "deleted");
-      req.flash("message", "Dihapus");
-      res.redirect("/cars");
-    });
+    if (deletedCar.photo !== "car-default.png") {
+      console.log("delete the image now!");
+      fs.unlink(
+        `${__dirname}/../assets/images/${deletedCar.photo}`,
+        (err) => {}
+      );
+    }
+    flashCode(req, "deleted", "Dihapus");
+    res.redirect("/cars");
   } catch (error) {
     req.flash("message", error.message);
     req.flash("status", "error");
